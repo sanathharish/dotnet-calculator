@@ -1,3 +1,4 @@
+using CalculatorApi.DTOs;
 using CalculatorApp.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,30 +15,42 @@ public class CalculatorController : ControllerBase
         _calculator = calculator;
     }
 
-    [HttpGet("add")]
-    public IActionResult Add(int a, int b)
+    [HttpPost("add")]
+    public IActionResult Add([FromBody] CalculationRequest request)
     {
-        return Ok(_calculator.Add(a, b));
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        return Ok(_calculator.Add(request.A, request.B));
     }
 
-    [HttpGet("subtract")]
-    public IActionResult Subtract(int a, int b)
+    [HttpPost("subtract")]
+    public IActionResult Subtract([FromBody] CalculationRequest request)
     {
-        return Ok(_calculator.Subtract(a, b));
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        return Ok(_calculator.Subtract(request.A, request.B));
     }
 
-    [HttpGet("multiply")]
-    public IActionResult Multiply(int a, int b)
+    [HttpPost("multiply")]
+    public IActionResult Multiply([FromBody] CalculationRequest request)
     {
-        return Ok(_calculator.Multiply(a, b));
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        return Ok(_calculator.Multiply(request.A, request.B));
     }
 
-    [HttpGet("divide")]
-    public IActionResult Divide(int a, int b)
+    [HttpPost("divide")]
+    public IActionResult Divide([FromBody] CalculationRequest request)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
         try
         {
-            return Ok(_calculator.Divide(a, b));
+            return Ok(_calculator.Divide(request.A, request.B));
         }
         catch (DivideByZeroException)
         {
