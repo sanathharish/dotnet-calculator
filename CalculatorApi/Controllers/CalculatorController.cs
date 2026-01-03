@@ -48,13 +48,7 @@ public class CalculatorController : ControllerBase
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        try
-        {
-            return Ok(_calculator.Divide(request.A, request.B));
-        }
-        catch (DivideByZeroException)
-        {
-            return BadRequest("Cannot divide by zero.");
-        }
+        return Ok(_calculator.Divide(request.A, request.B));
     }
+
 }
