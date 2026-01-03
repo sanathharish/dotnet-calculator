@@ -1,5 +1,10 @@
 namespace CalculatorApp.Interfaces;
+<<<<<<< HEAD
 interface ICalculator
+=======
+public interface ICalculator
+
+>>>>>>> feature/web-api
 {
     int Add(int a, int b);
     int Subtract(int a, int b);
