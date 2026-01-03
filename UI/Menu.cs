@@ -1,3 +1,7 @@
+namespace CalculatorApp.UI;
+
+using CalculatorApp.Enums;
+
 class Menu
 {
     public Operation GetUserChoice()

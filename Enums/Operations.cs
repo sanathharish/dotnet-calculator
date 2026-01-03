@@ -1,3 +1,4 @@
+namespace CalculatorApp.Enums;
 enum Operation
 {
     Add = 1,

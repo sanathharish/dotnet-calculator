@@ -1,4 +1,8 @@
-﻿class Program
+﻿using CalculatorApp.Enums;
+using CalculatorApp.Interfaces;
+using CalculatorApp.Services;
+using CalculatorApp.UI;
+class Program
 {
     static void Main()
     {
