@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CalculatorApi.Controllers;
 
 [ApiController]
-[Route("api/calculator")]
+[Route("api/v1/calculator")]
 public class CalculatorController : ControllerBase
 {
     private readonly ICalculator _calculator;
