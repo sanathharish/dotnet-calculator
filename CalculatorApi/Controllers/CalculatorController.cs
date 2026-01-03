@@ -19,4 +19,29 @@ public class CalculatorController : ControllerBase
     {
         return Ok(_calculator.Add(a, b));
     }
+
+    [HttpGet("subtract")]
+    public IActionResult Subtract(int a, int b)
+    {
+        return Ok(_calculator.Subtract(a, b));
+    }
+
+    [HttpGet("multiply")]
+    public IActionResult Multiply(int a, int b)
+    {
+        return Ok(_calculator.Multiply(a, b));
+    }
+
+    [HttpGet("divide")]
+    public IActionResult Divide(int a, int b)
+    {
+        try
+        {
+            return Ok(_calculator.Divide(a, b));
+        }
+        catch (DivideByZeroException)
+        {
+            return BadRequest("Cannot divide by zero.");
+        }
+    }
 }
