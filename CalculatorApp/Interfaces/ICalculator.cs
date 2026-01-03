@@ -1,5 +1,6 @@
 namespace CalculatorApp.Interfaces;
-interface ICalculator
+public interface ICalculator
+
 {
     int Add(int a, int b);
     int Subtract(int a, int b);
